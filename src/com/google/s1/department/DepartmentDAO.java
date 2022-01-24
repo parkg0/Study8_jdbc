@@ -19,6 +19,31 @@ public class DepartmentDAO {
 	}
 	//객체는 하나만 있으면됨 DAO만들어질때 딱하나만 만들어지도록 생성자내에서 객체 만들기 
 	
+//부서정보, 부서에 근무하는 사원들의 정보 같이
+	
+	
+public void getDEP_EMPList() throws Exception {
+	
+	Connection con = dbConnector.getConnect();
+	String sql="select D.*, E.* from departments D inner join employees E on(D.department_id=E.department_id)";
+	PreparedStatement st = con.prepareStatement(sql);
+	ResultSet rs= st.executeQuery();
+	
+	while(rs.next()) {
+		//DepartmentDTO에 못담음 EmployeeDTO에도 못담아 
+		//1. 상속 is a 자식클래스명 is a 부모클래스명이 맞으면 상속 아니면 포함 
+		//2. 포함 has a
+		// 부서 has a 직원이 자연스러움 ->포함 
+		//부서 1당 사원 n  1:n관계
+		//사원한명은 dto 하나 
+		//이 dto가 여러개 
+	}
+}
+	
+
+	
+	
+	
 	
 //부서번호로 조회
 	public DepartmentDTO getOne(DepartmentDTO dep) throws Exception {

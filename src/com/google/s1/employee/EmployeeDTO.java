@@ -2,6 +2,8 @@ package com.google.s1.employee;
 
 import java.util.Date;
 
+import com.google.s1.department.DepartmentDTO;
+
 public class EmployeeDTO {
 
 	private Integer employee_id;
@@ -12,6 +14,13 @@ public class EmployeeDTO {
 	private Date hire_date;
 	private String job_id;
 	private Integer salary;
+
+	private DepartmentDTO departmentDTO;
+	
+	//Department
+	//상속 or 포함 or 새로만들어 
+	//가지고있다가 어울리니까 포함 
+	
 	
 	
 	public Integer getEmployee_id() {
