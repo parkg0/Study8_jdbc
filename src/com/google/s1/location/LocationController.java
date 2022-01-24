@@ -38,6 +38,9 @@ public class LocationController {
 				 locationView.view(locationDAO.getOne(locationDTO));
 				
 				 break;
+				 
+			case 3:
+				flag=false;
 			}
 
 		}
