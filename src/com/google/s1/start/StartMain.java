@@ -1,27 +1,40 @@
 package com.google.s1.start;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.s1.department.DepartmentController;
 import com.google.s1.department.DepartmentDAO;
 import com.google.s1.department.DepartmentDTO;
 import com.google.s1.department.DepartmentView;
+import com.google.s1.employee.EmployeeDAO;
+import com.google.s1.employee.EmployeeDTO;
+import com.google.s1.employee.EmployeeView;
 import com.google.s1.location.LocationDAO;
 import com.google.s1.location.LocationView;
 import com.google.s1.util.DBConnector;
 
 public class StartMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		System.out.println("DB연동 테스트 시작");
-
-		FrontController frontController = new FrontController();
+		
+				FrontController frontController = new FrontController();
 		try {
 			frontController.mainStart();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 		// DB연결
 //		DBConnector dbConnector = new DBConnector();

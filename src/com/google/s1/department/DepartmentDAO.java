@@ -55,14 +55,6 @@ public class DepartmentDAO {
 		return departmentDTO;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
 //전체조회
 	public List<DepartmentDTO> getList() throws Exception {
 		ArrayList<DepartmentDTO> ar = new ArrayList();

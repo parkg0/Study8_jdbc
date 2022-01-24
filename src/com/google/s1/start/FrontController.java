@@ -3,20 +3,22 @@ package com.google.s1.start;
 import java.util.Scanner;
 
 import com.google.s1.department.DepartmentController;
+import com.google.s1.employee.EmployeeController;
+import com.google.s1.location.LocationController;
 
 public class FrontController {
 //로케이션 컨트롤러 디파트먼트 컨트롤러 모두 제어할거임
 
 	private Scanner sc;
 	private DepartmentController departmentController;
-	// LocationController 만들어
-	// EmployeeController 만들어
+	private LocationController locationController;
+	private EmployeeController employeeController;
 
 	public FrontController() {
 		sc = new Scanner(System.in);
 		departmentController = new DepartmentController();
-		//
-		//
+		locationController = new LocationController();
+		employeeController = new EmployeeController();
 	}
 
 	public void mainStart() throws Exception {
@@ -31,13 +33,13 @@ public class FrontController {
 			int select = sc.nextInt();
 			switch (select) {
 			case 1:
-				// emlpoyeeController의 start메서드 호출
+			employeeController.start();
 				break;
 			case 2:
 				departmentController.start();
 				break;
 			case 3:
-				//locationController의 스타트 메서드 호출
+				locationController.start();
 				break;
 				
 			default :
