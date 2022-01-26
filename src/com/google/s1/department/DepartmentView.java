@@ -23,4 +23,11 @@ public class DepartmentView {
 	}
 	
 	
-}
+	public void View(String message) {
+		System.out.println("============================");
+		System.out.println("Result:"+message);
+		System.out.println("============================");
+		}
+	}
+	
+

@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import com.google.s1.util.DBConnector;
 
 public class DepartmentDAO {
@@ -40,7 +42,37 @@ public void getDEP_EMPList() throws Exception {
 	}
 }
 	
+//DELETE 
+public int setDelete(DepartmentDTO departmentDTO) throws Exception{
 
+	Connection con = dbConnector.getConnect();
+	String sql="DELETE DEPARTMENTS WHERE DEPARTMENT_ID=?";
+	PreparedStatement st=con.prepareStatement(sql);
+	st.setInt(1, departmentDTO.getDepartment_id());
+	int result =st.executeUpdate();
+	st.close();
+	con.close();
+	
+	
+	return result;
+}
+
+
+//INSERT
+public int setInsert(DepartmentDTO departmentDTO) throws Exception {
+	
+	Connection con = dbConnector.getConnect();
+	String sql ="INSERT INTO DEPARTMENTS (DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID) VALUES (DEPARTMENTS_SEQ.NEXTVAL,?,?,?)";
+	PreparedStatement st=con.prepareStatement(sql);
+	st.setString(1,departmentDTO.getDepartment_name());
+	st.setInt(2, departmentDTO.getManager_id());
+	st.setInt(3, departmentDTO.getLocation_id());
+	int result=st.executeUpdate();
+	st.close();
+	con.close();
+	
+	return result;
+}
 	
 	
 	
