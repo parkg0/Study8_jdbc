@@ -13,6 +13,22 @@ public class RegionDAO {
 	public RegionDAO() {
 		dbConnector = new DBConnector();
 	}
+	
+//대륙정보 수정 //아이디 찾아서 네임 수정  ㅂ5번의 이름을 사우스폴로 
+	public int setUpdate(RegionDTO regionDTO) throws Exception{
+		Connection con = dbConnector.getConnect();
+		String sql="UPDATE regions set region_name=? where region_id=?";
+		PreparedStatement st=con.prepareStatement(sql);
+		st.setString(1, regionDTO.getRegion_name());
+		st.setLong(2, regionDTO.getRegion_id());
+		int result= st.executeUpdate();
+		
+		st.close();
+		con.close();
+		
+		return result;
+	}
+	
 
 //대륙정보 삭제 
 	public int setDelete(RegionDTO regionDTO) throws Exception {
